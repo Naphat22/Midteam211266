@@ -19,5 +19,3 @@ for i in range (0,len(df.columns)-1):
     model.fit(x,y)
     x_pred = ['Warm','No','Yes','Sometines','No']
 for i in range(0,len(df.columns)-1):
-    x_pred_adj = np.array(X_pred).reshape(-1,5)
-    
