@@ -1,0 +1,23 @@
+from sklearn.preprocessing import LabeEncoder
+from sklearn.tree import DecisionTreeClassifier
+import pandas as pd
+import numpy as np
+
+File_Path = 'D:\part2'
+File_Name = 'car_data'
+
+df = pd.read_excel(File_Path + File_Name)
+df.drop(columns=['Name'], inplace=True)
+encoders = []
+for i in range (0,len(df.columns)-1):
+    enc= LabelEncoder()
+    df.iloc[:,i]= enc.fit_transform(df.iloc[:,i])
+    encoders.append(enc)
+    x= df.iloc[:,0:5]
+    y= df['species']
+    model = DecisionTreeClassifier(criterion='entropy')
+    model.fit(x,y)
+    x_pred = ['Warm','No','Yes','Sometines','No']
+for i in range(0,len(df.columns)-1):
+    x_pred_adj = np.array(X_pred).reshape(-1,5)
+    
